@@ -42,7 +42,7 @@ def rock_paper_scissors():
             print(user_choice)
             valid_input = True
         else:
-            continue
+            print("Type a valid number between 0 and 2 inclusive.")
 
     print("Computer chose:")
     computer_choice = random.choice(choices)
