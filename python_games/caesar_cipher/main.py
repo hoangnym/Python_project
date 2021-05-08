@@ -1,48 +1,50 @@
+from art import logo
+
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
 
-#Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
-def encrypt(text, shift):
+#Create caesar function
+def caesar(text, shift, direction):
 
-    encrypted = ''
+    caesar = ''
     for letter in text:
-        idx_o = alphabet.index(letter)
-        idx_s = idx_o + shift
+        if letter in alphabet:
+            idx_o = alphabet.index(letter)
 
-        ##Account for out of range error
-        if idx_s >= 26:
-            idx_s -= 26
+            if direction == "encode":
+                idx_s = idx_o + shift
+                ##Account for out of range error
+                while idx_s >= 26:
+                    idx_s -= 26
+                caesar += alphabet[idx_s]
+            elif direction == "decode":
+                idx_s = idx_o - shift
+                ## Account for out of range error
+                while idx_s < 0:
+                    idx_s += 26
 
-        encrypted += alphabet[idx_s]
+                caesar += alphabet[idx_s]
+        else:
+            caesar += letter
     
-    print(f"The encypted text is {encrypted}.")
-
-#TODO-1: Create a different function called 'decrypt' that takes the 'text' and 'shift' as inputs.
-def decrypt(text, shift):
-
-    decrypted = ''
-    for letter in text:
-        idx_o = alphabet.index(letter)
-        idx_s = idx_o - shift
-
-        ## Account for out of range error
-        if idx_s < 0:
-            idx_s += 26
-
-        decrypted += alphabet[idx_s]
-
-    print(f"The decrypted text is {decrypted}.")
+    print(f"The {direction}d text is {caesar}.")
 
 
-#TODO-3: Check if the user wanted to encrypt or decrypt the message by checking the 'direction' variable. 
-#Then call the correct function based on that 'drection' variable. You should be able to test the code to encrypt *AND* decrypt a message.
+if __name__ == "__main__":
+    print(logo)
 
-if direction == "encode":
-    encrypt(text, shift)
-elif direction == "decode":
-    decrypt(text, shift)
+    want_to_continue = True
+
+    while want_to_continue:
+        go_again = input("Do you want to go again, yes or no? \n").lower()
+        if go_again == "yes":
+            direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+            text = input("Type your message:\n").lower()
+            shift = int(input("Type the shift number:\n"))
+            caesar(text, shift, direction)
+        elif go_again == "no":
+            want_to_continue = False
+
+
 
