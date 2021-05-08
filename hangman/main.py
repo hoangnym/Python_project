@@ -27,11 +27,17 @@ guessed = []
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
 
+    #Clear window
+    print(chr(27) + "[2J")
+
+    # print logo
+    print(hangman_art.logo + "\n")
+
     #If user guessed a letter already guessed, let user know, print checked letter
-    if guess in guessed:
-        print(f"You already guessed {guess}.")
-        lives += 1
-    else:
+    if guess in chosen_word:
+        print(f"You already guessed {guess}.\n")
+    
+    if guess not in guessed:
         guessed.append(guess)
 
     #Loop through each position in the chosen_word;
@@ -40,21 +46,22 @@ while not end_of_game:
         if guess == chosen_word[i]:
             display[i] = guess
 
+
+    #Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
+    print(display)
+    print(f"Already used {guessed}")
+
     #If guess is not a letter in the chosen_word,
     #Then reduce 'lives' by 1.
     #If lives goes down to 0 then the game should stop and it should print "You lose."
     if guess not in chosen_word:
-        print(f"The letter {guess} is not in the chosen word.")
+        print(f"The letter {guess} is not in the chosen word.\n")
         lives -= 1
         if lives == 0:
             end_of_game = True
-            print(f"You lose. \n We looked for {chosen_word}." )
+            print(f"You lose. \n We looked for {chosen_word}.")
 
-
-    #Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
-    print(hangman_art.stages[lives])
-    print(display)
-    print(f"Already used {guessed}")
+    print(hangman_art.stages[lives] + "\n")
 
     #Check if '_' in display => if not, end_of_game = True
     if '_' not in display:
