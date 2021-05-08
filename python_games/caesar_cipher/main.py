@@ -8,9 +8,9 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 def caesar(text, shift, direction):
 
     caesar = ''
-    for letter in text:
-        if letter in alphabet:
-            idx_o = alphabet.index(letter)
+    for char in text:
+        if char in alphabet:
+            idx_o = alphabet.index(char)
 
             if direction == "encode":
                 idx_s = idx_o + shift
@@ -26,7 +26,7 @@ def caesar(text, shift, direction):
 
                 caesar += alphabet[idx_s]
         else:
-            caesar += letter
+            caesar += char
     
     print(f"The {direction}d text is {caesar}.")
 
