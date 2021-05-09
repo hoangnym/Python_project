@@ -1,4 +1,5 @@
 from art import logo
+import random
 
 ############### Blackjack Project #####################
 
@@ -29,6 +30,86 @@ from art import logo
 #Hint 2: Read this breakdown of program requirements:
 #   http://listmoz.com/view/6h34DJpvJBFVRlZfJvxF
 #Then try to create your own flowchart for the program.
+
+
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+## Create blackjack game
+def blackjack():
+    '''
+    Starts a game of blackjack.
+    '''
+    print(logo)
+    ## User receives two cards at the beginning
+    your_cards = [random.choice(cards) for card in range(2)]
+    print(f"Your cards: {your_cards}, current score: {sum(your_cards)}")
+
+    ## Dealer receives one card at the beginning
+    dealer_cards = [random.choice(cards) for card in range(2)]
+    print(f"Dealer's first hand: {dealer_cards[0]}")
+
+    ## while loop
+    continue_drawing = True
+
+    while continue_drawing:
+        ## Ask user whether they want to draw a new card
+        user_input = input("Type 'y' to get another card, type 'n' to pass: ")
+        if user_input == 'y':
+            your_cards.append(random.choice(cards))
+            print(f"Your cards: {your_cards}, current score: {sum(your_cards)}")
+            print(f"Dealer's first hand: {dealer_cards[0]}")
+            ## Check if game is over: Blackjack or over 21 
+            ## => if not ask again for input, else reveal dealer's cards
+            if game_finished(your_cards):
+                outcome = game_finished(your_cards)
+                continue_drawing = False
+        elif user_input == 'n':
+            while sum(dealer_cards) <= 16:
+                dealer_cards.append(random.choice(cards))
+            continue_drawing = False
+    
+    ### compare dealer_cards and your_cards
+    if sum(your_cards) > 21:
+        print(outcome, dealer_cards)
+    elif sum(dealer_cards) > 21:
+        print(your_cards, dealer_cards, "You win.")
+    elif sum(your_cards) > sum(dealer_cards):
+        print(your_cards, dealer_cards, "You win.")
+    else:
+        print(sum(your_cards), sum(dealer_cards), "Dealer wins.")
+
+    return
+
+## Automatic check whether game is over
+def game_finished(current_hand):
+    '''
+    Checks automatically whether game is finished
+    '''
+    if sum(current_hand) >= 21:
+        ## check whether 11 is in current_hand > replace with one
+        if 11 in current_hand:
+            current_hand[current_hand.index(11)] = 1
+        if sum(current_hand) >= 21:
+            return "You went over. You lose."
+    if sum(current_hand) == 21:
+        return "Blackjack. You win."
+    else:
+        return False
+
+### Start a sequence
+if input("Do you want to play a game of Blackjack? Type 'y' or 'n': ") == 'y':
+    blackjack()
+
+
+
+
+
+
+
+
+
+
+
 
 #Hint 3: Download and read this flow chart I've created:
 #   https://drive.google.com/uc?export=download&id=1rDkiHCrhaf9eX7u7yjM1qwSuyEk-rPnt
