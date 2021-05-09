@@ -24,14 +24,17 @@ operations = {
     "/" : divide, 
 }
 def calculator():
-    num1 = int(input("What is the first number?: "))
+
+    print(logo)
+
+    num1 = float(input("What is the first number?: "))
     next_iteration = True
 
     while next_iteration:
         for symbol in operations:
             print(symbol)
         operation_symbol = input("Pick an operation from the line above: ")
-        num2 = int(input("What is the next number?: "))
+        num2 = float(input("What is the next number?: "))
         answer = operations[operation_symbol](num1, num2)
         print(f"{num1} {operation_symbol} {num2} = {answer}")
 
