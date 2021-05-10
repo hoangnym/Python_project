@@ -20,17 +20,17 @@ def start_game():
         return None, None
 
 def continue_game(celeb):
-    print(f"Compare A: {celeb.name}, {celeb.description}, from {celeb.country}")
+    print(f"Compare A: {celeb['name']}, {celeb['description']}, from {celeb['country']}")
     print(vs)
     b = data[random.randint(0, len(data) - 1)]
     ### test whether b equals a, if so assign new account to b
     while b == celeb:
         b = data[random.randint(0, len(data) - 1)]
-    print(f"Compare B: {b.name}, {b.description}, from {b.country}")
+    print(f"Compare B: {b['name']}, {b['description']}, from {b['country']}")
 
-    if celeb.follower_count > b.follower_count:
+    if celeb['follower_count'] > b['follower_count']:
         return celeb, 'A'
-    elif celeb.follower_count < b.follower_count:
+    elif celeb['follower_count'] < b['follower_count']:
         return b, 'B'
     else:
         return None, None
