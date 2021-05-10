@@ -47,6 +47,9 @@ if __name__ == '__main__':
         who_has_more = input("Who has more followers? Type 'A' or 'B': ").upper()
         if who_has_more == letter:
             points += 1
+            ##clear window
+            print(chr(27) + "[2J")
+            
             print(f"You're right! {more_followers['name']} has {more_followers['follower_count']} followers. {less['name']} has {less['follower_count']} followers.")
             print(f"Current score: {points}. \n")
             a, b = continue_game(b)
