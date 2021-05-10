@@ -3,13 +3,13 @@ from game_data import data
 import random
 
 def start_game():
-    a = data[random.randint(0, len(data) - 1)]
+    a = random.choice(data)
     print(f"Compare A: {a['name']}, {a['description']}, from {a['country']}")
     print(vs)
-    b = data[random.randint(0, len(data) - 1)]
+    b = random.choice(data)
     ### test whether b equals a, if so assign new account to b
     while b == a:
-        b = data[random.randint(0, len(data) - 1)]
+        b = random.choice(data)
     print(f"Compare B: {b['name']}, {b['description']}, from {b['country']}")
 
     return a, b
@@ -26,10 +26,10 @@ def continue_game(celeb):
     print(logo)
     print(f"Compare A: {celeb['name']}, {celeb['description']}, from {celeb['country']}")
     print(vs)
-    b = data[random.randint(0, len(data) - 1)]
+    b = random.choice(data)
     ### test whether b equals a, if so assign new account to b
     while b == celeb:
-        b = data[random.randint(0, len(data) - 1)]
+        b = random.choice(data)
     print(f"Compare B: {b['name']}, {b['description']}, from {b['country']}")
 
     return celeb, b
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             points += 1
             ##clear window
             print(chr(27) + "[2J")
-            
+
             print(f"You're right! {more_followers['name']} has {more_followers['follower_count']} followers. {less['name']} has {less['follower_count']} followers.")
             print(f"Current score: {points}. \n")
             a, b = continue_game(b)
