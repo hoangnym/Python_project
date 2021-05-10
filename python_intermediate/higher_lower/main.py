@@ -39,7 +39,7 @@ def continue_game(celeb):
 if __name__ == '__main__':
     ##clear window
     print(chr(27) + "[2J")
-
+    
     points = 0
     print(logo)
     more_followers, letter, less = start_game()
