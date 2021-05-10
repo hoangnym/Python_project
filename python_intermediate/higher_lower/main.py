@@ -20,6 +20,7 @@ def start_game():
         return None, None
 
 def continue_game(celeb):
+    print(logo)
     print(f"Compare A: {celeb['name']}, {celeb['description']}, from {celeb['country']}")
     print(vs)
     b = data[random.randint(0, len(data) - 1)]
@@ -36,6 +37,9 @@ def continue_game(celeb):
         return None, None
 
 if __name__ == '__main__':
+    ##clear window
+    print(chr(27) + "[2J")
+
     points = 0
     print(logo)
     more_followers, letter, less = start_game()
@@ -50,4 +54,5 @@ if __name__ == '__main__':
         else:
             continue_playing = False
 
-    print(f"Sorry, that is wrong. Final score {points}.")
+    print(f"Sorry, that is wrong. {more_followers['name']} has {more_followers['follower_count']} followers. {less['name']} has {less['follower_count']} followers.")
+    print(f"Final score {points}.")
