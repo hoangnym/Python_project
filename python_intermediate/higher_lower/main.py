@@ -12,6 +12,9 @@ def start_game():
         b = data[random.randint(0, len(data) - 1)]
     print(f"Compare B: {b['name']}, {b['description']}, from {b['country']}")
 
+    return a, b
+
+def evaluate_game(a, b):
     if a['follower_count'] > b['follower_count']:
         return a, 'A', b
     elif a['follower_count'] < b['follower_count']:
@@ -29,12 +32,7 @@ def continue_game(celeb):
         b = data[random.randint(0, len(data) - 1)]
     print(f"Compare B: {b['name']}, {b['description']}, from {b['country']}")
 
-    if celeb['follower_count'] > b['follower_count']:
-        return celeb, 'A', b
-    elif celeb['follower_count'] < b['follower_count']:
-        return b, 'B', celeb
-    else:
-        return None, None
+    return celeb, b
 
 if __name__ == '__main__':
     ##clear window
@@ -42,15 +40,16 @@ if __name__ == '__main__':
     
     points = 0
     print(logo)
-    more_followers, letter, less = start_game()
+    a, b = start_game()
     continue_playing = True
     while continue_playing:
+        more_followers, letter, less = evaluate_game(a, b)
         who_has_more = input("Who has more followers? Type 'A' or 'B': ").upper()
         if who_has_more == letter:
             points += 1
             print(f"You're right! {more_followers['name']} has {more_followers['follower_count']} followers. {less['name']} has {less['follower_count']} followers.")
             print(f"Current score: {points}. \n")
-            more_followers, letter, less = continue_game(more_followers)
+            a, b = continue_game(b)
         else:
             continue_playing = False
 
