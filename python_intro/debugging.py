@@ -30,11 +30,11 @@
 #     print("You cannot drive yet, you need to be at least 18 years old.")
 
 # #Print is Your Friend
-pages = 0
-word_per_page = 0
+#pages = 0
+#word_per_page = 0
 pages = int(input("Number of pages: "))
-word_per_page == int(input("Number of words per page: "))
-total_words = pages * word_per_page
+words_per_page = int(input("Number of words per page: "))
+total_words = pages * words_per_page
 print(total_words)
 
 # #Use a Debugger
