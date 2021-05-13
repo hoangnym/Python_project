@@ -7,9 +7,9 @@ menu = Menu()
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
 
-taking_order = True
+is_on = True
 
-while taking_order:
+while is_on:
     # Ask user for order
     order = input("What would you like to drink? (espresso, latte, cappuccino): ")
 
@@ -18,7 +18,7 @@ while taking_order:
         coffee_maker.report()
 
     elif order == "off":
-        taking_order = False
+        is_on = False
 
     else:
         # Check resources sufficient?
