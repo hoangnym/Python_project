@@ -19,5 +19,6 @@ from prettytable import PrettyTable
 pokedex = PrettyTable()
 pokedex.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander"])
 pokedex.add_column("Type", ["Electro", "Water", "Fire"])
+pokedex.align = "l"
 
 print(pokedex)
