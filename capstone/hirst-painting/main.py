@@ -52,12 +52,13 @@ def go_up_one_line(turtle, start, size_of_dot=50, gap=20):
 painter = t.Turtle()
 # Go to starting position
 start = starting_position(painter)
-grid_size = int(input("How large do you want the painting to be?: "))
+grid_size = 10
+painter.speed("fastest")
 # Draw line of dots
 draw_line_of_dots(painter, grid_size)
 
-for _ in range(grid_size):
-    go_up_one_line(painter, start)
+for _ in range(grid_size-1):
+    start = go_up_one_line(painter, start)
     draw_line_of_dots(painter, grid_size)
 
 screen = t.Screen()
