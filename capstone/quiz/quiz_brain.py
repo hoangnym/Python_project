@@ -5,10 +5,15 @@ class QuizBrain:
         self.question_list = question_list
 
 
-# TODO: Asking the question
+    def next_question(self):
+        current_question = self.question_list[self.question_number]
+        self.question_number += 1
+        input(f"Q.{self.question_number}: {current_question.text} (True/False): ")
+
+
 
 
 # TODO: checking if the answer was correct
 
 
-# TODO: checkign if we are at the end of the quiz
+# TODO: checking if we are at the end of the quiz
