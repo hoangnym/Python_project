@@ -35,6 +35,14 @@ def draw_shape(num_sides):
         timmy.right(angle)
 
 
+# timmy = t.Turtle()
+# timmy.shape("turtle")
+
+# for shape_side in range(3, 11):
+#     timmy.color(random.choice(colors))
+#     draw_shape(shape_side)
+
+
 # Random walk
 def random_walk(turtle, times):
     angles = [0, 90, 180, 270]
@@ -46,15 +54,22 @@ def random_walk(turtle, times):
         turtle.forward(30)
 
 
-# timmy = t.Turtle()
-# timmy.shape("turtle")
+# tommy = t.Turtle()
+# random_walk(tommy, 500)
 
-# for shape_side in range(3, 11):
-#     timmy.color(random.choice(colors))
-#     draw_shape(shape_side)
 
-tommy = t.Turtle()
-random_walk(tommy, 500)
+# Draw Spirograph
+def draw_spirograph(size_of_gap, turtle):
+    turtle.speed("fastest")
+    for _ in range(int(360 / size_of_gap)):
+        turtle.color(random_color())
+        turtle.circle(100)
+        turtle.setheading(turtle.heading() + size_of_gap)
+
+
+tammy = t.Turtle()
+draw_spirograph(5, tammy)
+
 
 
 screen = t.Screen()
