@@ -29,25 +29,36 @@ t.colormode(255)
 def starting_position(turtle):
     turtle.penup()
     turtle.goto(-200, -200)
-    print(turtle.pos())
+    position = turtle.pos()
+    return position
 
 
-def draw_line_of_dots(turtle, num_dots):
+def draw_line_of_dots(turtle, num_dots, size_of_dot=50, gap=20):
     for _ in range(num_dots):
         # Create random color RGB
         turtle.pendown()
-        turtle.dot(20, random.choice(rgb_colors))
+        turtle.dot(gap, random.choice(rgb_colors))
         turtle.penup()
-        turtle.forward(50)
+        turtle.forward(size_of_dot)
+
+
+def go_up_one_line(turtle, start, size_of_dot=50, gap=20):
+    turtle.goto(start[0], start[1] + size_of_dot/2 + gap)
+    position = turtle.pos()
+    return position
 
 
 # Initialize Turtle
 painter = t.Turtle()
+# Go to starting position
+start = starting_position(painter)
+grid_size = int(input("How large do you want the painting to be?: "))
+# Draw line of dots
+draw_line_of_dots(painter, grid_size)
 
-starting_position(painter)
-draw_line_of_dots(painter, 10)
-print(painter.pos())
-
+for _ in range(grid_size):
+    go_up_one_line(painter, start)
+    draw_line_of_dots(painter, grid_size)
 
 screen = t.Screen()
 screen.exitonclick()
