@@ -8,8 +8,23 @@ import random
 #     timmy.forward(10)
 #     timmy.pendown()
 
-colors = ["medium blue", "coral", "forest green",
-          "brown", "red"]
+# colors = ["medium blue", "coral", "forest green",
+#           "brown", "red"]
+
+
+# Create random color RGB
+t.colormode(255)
+
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+
+    color = (r, g, b)
+
+    return color
+
 
 # Draw different shapes
 def draw_shape(num_sides):
@@ -23,12 +38,12 @@ def draw_shape(num_sides):
 # Random walk
 def random_walk(turtle, times):
     angles = [0, 90, 180, 270]
+    turtle.pensize(15)
+    turtle.speed("fastest")
     for _ in range(times):
+        turtle.color(random_color())
         turtle.setheading(random.choice(angles))
         turtle.forward(30)
-        turtle.speed("fastest")
-        turtle.pensize(15)
-        turtle.color(random.choice(colors))
 
 
 # timmy = t.Turtle()
