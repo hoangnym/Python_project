@@ -1,10 +1,6 @@
 import turtle as t
 import random
 
-timmy = t.Turtle()
-timmy.shape("turtle")
-colors = ["medium blue", "coral", "forest green"]
-
 # timmy draws dashed line
 # for _ in range(20):
 #     timmy.forward(10)
@@ -12,8 +8,10 @@ colors = ["medium blue", "coral", "forest green"]
 #     timmy.forward(10)
 #     timmy.pendown()
 
+colors = ["medium blue", "coral", "forest green",
+          "brown", "red"]
 
-# Let timmy draw triangle up to decagon
+# Draw different shapes
 def draw_shape(num_sides):
     angle = 360 / num_sides
     # Draw the figure
@@ -22,9 +20,27 @@ def draw_shape(num_sides):
         timmy.right(angle)
 
 
-for shape_side in range(3, 11):
-    timmy.color(random.choice(colors))
-    draw_shape(shape_side)
+# Random walk
+def random_walk(turtle, times):
+    angles = [0, 90, 180, 270]
+    for _ in range(times):
+        turtle.setheading(random.choice(angles))
+        turtle.forward(30)
+        turtle.speed("fastest")
+        turtle.pensize(15)
+        turtle.color(random.choice(colors))
+
+
+# timmy = t.Turtle()
+# timmy.shape("turtle")
+
+# for shape_side in range(3, 11):
+#     timmy.color(random.choice(colors))
+#     draw_shape(shape_side)
+
+tommy = t.Turtle()
+random_walk(tommy, 500)
+
 
 screen = t.Screen()
 screen.exitonclick()
