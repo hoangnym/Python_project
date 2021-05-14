@@ -45,6 +45,8 @@ def draw_line_of_dots(turtle, num_dots):
 painter = t.Turtle()
 
 starting_position(painter)
+draw_line_of_dots(painter, 10)
+print(painter.pos())
 
 
 screen = t.Screen()
