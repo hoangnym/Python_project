@@ -13,7 +13,40 @@
 #
 # print(rgb_colors)
 
+import turtle as t
+import random
+
 rgb_colors = [(1, 12, 31), (54, 25, 17), (218, 127, 106), (9, 104, 160), (242, 213, 68), (150, 83, 39), (216, 86, 63),
               (156, 6, 24), (165, 162, 30), (158, 62, 102), (207, 73, 103), (10, 64, 33), (11, 96, 57), (95, 6, 20),
               (175, 134, 162), (7, 173, 217), (1, 61, 145), (2, 213, 207), (158, 32, 23), (8, 140, 85), (144, 227, 217),
               (121, 193, 147), (220, 177, 216), (100, 218, 229), (251, 198, 1), (116, 170, 192)]
+
+# TODO: Paint a painting with 10 x 10 spots using Turtle
+# Each point 20 in size and spaced apart by 50
+t.colormode(255)
+
+
+def starting_position(turtle):
+    turtle.penup()
+    turtle.goto(-200, -200)
+    print(turtle.pos())
+
+
+def draw_line_of_dots(turtle, num_dots):
+    for _ in range(num_dots):
+        # Create random color RGB
+        turtle.pendown()
+        turtle.dot(20, random.choice(rgb_colors))
+        turtle.penup()
+        turtle.forward(50)
+
+
+# Initialize Turtle
+painter = t.Turtle()
+
+starting_position(painter)
+
+
+screen = t.Screen()
+screen.exitonclick()
+
