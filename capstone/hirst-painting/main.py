@@ -39,6 +39,7 @@ def draw_line_of_dots(turtle, num_dots, size_of_dot=50, gap=20):
         turtle.pendown()
         turtle.dot(gap, random.choice(rgb_colors))
         turtle.penup()
+        turtle.hideturtle()
         turtle.forward(size_of_dot)
 
 
@@ -60,6 +61,8 @@ draw_line_of_dots(painter, grid_size)
 for _ in range(grid_size-1):
     start = go_up_one_line(painter, start)
     draw_line_of_dots(painter, grid_size)
+
+
 
 screen = t.Screen()
 screen.exitonclick()
