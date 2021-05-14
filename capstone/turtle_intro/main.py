@@ -1,8 +1,9 @@
-from turtle import Turtle, Screen
+import turtle as t
+import random
 
-timmy = Turtle()
+timmy = t.Turtle()
 timmy.shape("turtle")
-timmy.color("coral")
+colors = ["medium blue", "coral", "forest green"]
 
 # timmy draws dashed line
 # for _ in range(20):
@@ -11,14 +12,19 @@ timmy.color("coral")
 #     timmy.forward(10)
 #     timmy.pendown()
 
+
 # Let timmy draw triangle up to decagon
-for i in range(3, 11):
-    angle = 360 / i
+def draw_shape(num_sides):
+    angle = 360 / num_sides
     # Draw the figure
-    for _ in range(i):
+    for _ in range(num_sides):
         timmy.forward(100)
         timmy.right(angle)
 
 
-screen = Screen()
+for shape_side in range(3, 11):
+    timmy.color(random.choice(colors))
+    draw_shape(shape_side)
+
+screen = t.Screen()
 screen.exitonclick()
