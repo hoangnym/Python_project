@@ -21,7 +21,10 @@ def clockwise():
 
 
 def clear_drawing():
-    timmy.clearsreen()
+    timmy.clear()
+    timmy.penup()
+    timmy.home()
+    timmy.pendown()
 
 
 screen = t.Screen()
