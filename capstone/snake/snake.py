@@ -19,12 +19,12 @@ class Snake:
             new_segment.goto(position)
             self.segments.append(new_segment)
 
-    def move(self):
+    def move(self, move_dist):
         for idx in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[idx - 1].xcor()
             new_y = self.segments[idx - 1].ycor()
             self.segments[idx].goto(new_x, new_y)
-        self.segments[0].forward(20)
+        self.segments[0].forward(move_dist)
 
 
 
