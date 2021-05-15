@@ -1,5 +1,6 @@
 # Import libraries
 from turtle import Screen, Turtle
+from snake import Snake
 import time
 
 # Set up screen
