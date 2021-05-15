@@ -1,5 +1,9 @@
 from turtle import Turtle
 
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 class Snake:
 
@@ -31,16 +35,20 @@ class Snake:
         self.head.forward(move_dist)
 
     def up(self):
-        self.head.seth(90)
+        if self.head.heading() != DOWN:
+            self.head.seth(UP)
 
     def down(self):
-        self.head.seth(270)
+        if self.head.heading() != UP:
+            self.head.seth(DOWN)
 
     def left(self):
-        self.head.seth(180)
+        if self.head.heading() != RIGHT:
+            self.head.seth(LEFT)
 
     def right(self):
-        self.head.seth(0)
+        if self.head.heading() != LEFT:
+            self.head.seth(RIGHT)
 
 
 
