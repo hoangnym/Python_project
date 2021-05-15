@@ -8,16 +8,22 @@ screen.bgcolor("black")
 screen.title("My Snake Game")
 
 # TODO: 1. Build snake body
-segment_1 = Turtle("square")
-segment_1.color("white")
-# x_pos = 0
-# for _ in range(3):
-#     turtle = Turtle(shape="square")
-#     turtle.color("white")
-#     turtle.goto(x_pos, 0)
-#     x_pos -= 10
+starting_positions = [(0, 0), (-20, 0), (-40, 0)]
+segments = []
+for position in starting_positions:
+    new_segment = Turtle(shape="square")
+    new_segment.color("white")
+    new_segment.penup()
+    new_segment.goto(position)
+    segments.append(new_segment)
 
 # TODO: 2. Move the snake
+game_is_on = True
+while game_is_on:
+    for seg in segments:
+        seg.forward(20)
+
+
 
 # TODO: 3. Create snake food
 
