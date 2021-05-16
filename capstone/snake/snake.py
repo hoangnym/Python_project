@@ -21,11 +21,20 @@ class Snake:
             starting_positions.append((x_pos, y_pos))
             x_pos -= 20
         for position in starting_positions:
-            new_segment = Turtle(shape="square")
-            new_segment.color("white")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.add_segment(position)
+
+
+    def add_segment(self, position):
+        new_segment = Turtle(shape="square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+
+
+    def extend(self):
+        # add a new segment to the snake.
+        self.add_segment(self.segments[-1].position())
 
     def move(self, move_dist):
         for idx in range(len(self.segments) - 1, 0, -1):
