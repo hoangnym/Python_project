@@ -1,6 +1,7 @@
 # Import libraries
 from turtle import Screen, Turtle
 from snake import Snake
+from food import Food
 import time
 
 # Set up screen
@@ -12,6 +13,7 @@ screen.tracer(0)
 
 # TODO: 1. Build snake body
 snake = Snake(3)
+food = Food()
 
 # TODO: 2. Move the snake
 screen.listen()
@@ -26,7 +28,6 @@ while game_is_on:
     time.sleep(0.1)
 
     snake.move(20)
-
 
 # TODO: 3. Create snake food
 
