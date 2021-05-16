@@ -13,6 +13,8 @@ screen.tracer(0)
 
 # TODO: 1. Build snake body
 snake = Snake(3)
+
+# TODO: 3. Create snake food
 food = Food()
 
 # TODO: 2. Move the snake
@@ -26,12 +28,12 @@ game_is_on = True
 while game_is_on:
     screen.update()
     time.sleep(0.1)
-
     snake.move(20)
 
-# TODO: 3. Create snake food
+    # TODO: 4. Detect collision with food
+    if snake.head.distance(food) < 15:
+        food.refresh()
 
-# TODO: 4. Detect collision with food
 
 # TODO: 5. Create a scoreboard
 
