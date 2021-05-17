@@ -16,6 +16,8 @@ screen.onkey(paddle_right.go_down, "Down")
 
 # TODO: 3) Create another paddle
 paddle_right = Paddle(-350, 0)
+screen.onkey(paddle_right.go_up, "w")
+screen.onkey(paddle_right.go_down, "s")
 
 # TODO: 4) Create the ball and make it move
 
