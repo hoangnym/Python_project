@@ -7,6 +7,7 @@ screen = Screen()
 screen.title("Pong Game")
 screen.bgcolor("black")
 screen.setup(width=800, height=600)
+screen.tracer(0)
 
 # TODO: 2) Create and move a paddle
 paddle_right = Paddle(350, 0)
@@ -30,7 +31,10 @@ screen.onkey(paddle_right.go_down, "s")
 # TODO: 8) Keep score
 
 
+game_is_on = True
 
+while game_is_on:
+    screen.update()
 
 
 screen.exitonclick()
