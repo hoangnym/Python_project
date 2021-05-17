@@ -1,5 +1,6 @@
 from turtle import Turtle, Screen
 from paddle import Paddle
+from ball import Ball
 
 
 # TODO: 1) Create the screen
@@ -21,6 +22,7 @@ screen.onkey(paddle_right.go_up, "w")
 screen.onkey(paddle_right.go_down, "s")
 
 # TODO: 4) Create the ball and make it move
+ball = Ball()
 
 # TODO: 5) Detect collision with wall and bounce
 
