@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 
@@ -26,6 +27,7 @@ screen.onkey(paddle_left.go_down, "s")
 ball = Ball()
 
 # TODO: 8) Keep score
+score = Scoreboard()
 
 
 game_is_on = True
@@ -44,8 +46,13 @@ while game_is_on:
         ball.bounce_of_paddle()
 
     # TODO: 7) Detect ball out of bounds
-    if ball.xcor() > 400 or ball.xcor() < -400:
+    if ball.xcor() > 400:
         ball.reset()
+        score.point_left()
+
+    if ball.xcor() < -400:
+        ball.reset()
+        score.point_right()
 
 
 screen.exitonclick()
