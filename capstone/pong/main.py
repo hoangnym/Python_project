@@ -9,9 +9,10 @@ screen.bgcolor("black")
 screen.setup(width=800, height=600)
 
 # TODO: 2) Create and move a paddle
-paddle = Paddle(-400, 0)
+paddle = Paddle(-350, 0)
 
 # TODO: 3) Create another paddle
+paddle = Paddle(350, 0)
 
 # TODO: 4) Create the ball and make it move
 
