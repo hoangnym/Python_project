@@ -25,8 +25,6 @@ screen.onkey(paddle_right.go_down, "s")
 # TODO: 4) Create the ball and make it move
 ball = Ball()
 
-# TODO: 5) Detect collision with wall and bounce
-
 # TODO: 6) Detect collision with paddle
 
 # TODO: 7) Detect collision with paddle
@@ -37,9 +35,14 @@ ball = Ball()
 game_is_on = True
 
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(0.05)
     screen.update()
     ball.move()
+
+    # TODO: 5) Detect collision with wall and bounce
+    if ball.ycor() >= 280 or ball.ycor() <= -280:
+        ball.bounce_of_wall()
+
 
 
 screen.exitonclick()
