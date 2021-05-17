@@ -11,16 +11,16 @@ screen.bgcolor("black")
 screen.setup(width=800, height=600)
 screen.tracer(0)
 
+screen.listen()
 # TODO: 2) Create and move a paddle
 paddle_right = Paddle((350, 0))
-screen.listen()
 screen.onkey(paddle_right.go_up, "Up")
 screen.onkey(paddle_right.go_down, "Down")
 
 # TODO: 3) Create another paddle
-paddle_right = Paddle((-350, 0))
-screen.onkey(paddle_right.go_up, "w")
-screen.onkey(paddle_right.go_down, "s")
+paddle_left = Paddle((-350, 0))
+screen.onkey(paddle_left.go_up, "w")
+screen.onkey(paddle_left.go_down, "s")
 
 # TODO: 4) Create the ball and make it move
 ball = Ball()
@@ -40,7 +40,7 @@ while game_is_on:
         ball.bounce_of_wall()
 
     # TODO: 6) Detect collision with right paddle
-    if ball.distance(paddle_right) < 50 and ball.xcor() >= 340:
+    if ball.xcor() >= 340 and ball.distance(paddle_right) < 50:
         ball.bounce_of_paddle()
 
 
