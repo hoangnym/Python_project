@@ -1,4 +1,10 @@
+from turtle import Turtle, Screen
+
+
 # TODO: 1) Create the screen
+screen = Screen()
+screen.title("Pong Game")
+screen.bgcolor("black")
 
 # TODO: 2) Create and move a paddle
 
@@ -13,3 +19,9 @@
 # TODO: 7) Detect collision with paddle
 
 # TODO: 8) Keep score
+
+
+
+
+
+screen.exitonclick()
