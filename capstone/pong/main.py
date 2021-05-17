@@ -31,9 +31,10 @@ score = Scoreboard()
 
 
 game_is_on = True
+sleep_time = 0.05
 
 while game_is_on:
-    time.sleep(0.05)
+    time.sleep(max(0.001, sleep_time))
     screen.update()
     ball.move()
 
@@ -44,15 +45,18 @@ while game_is_on:
     # TODO: 6) Detect collision with paddles
     if (ball.xcor() >= 330 and ball.distance(paddle_right) < 50) or (ball.xcor() <= -330 and ball.distance(paddle_left) < 50):
         ball.bounce_of_paddle()
+        sleep_time -= 0.005
 
     # TODO: 7) Detect ball out of bounds
     if ball.xcor() > 400:
         ball.reset()
         score.point_left()
+        sleep_time = 0.05
 
     if ball.xcor() < -400:
         ball.reset()
         score.point_right()
+        sleep_time = 0.05
 
 
 screen.exitonclick()
