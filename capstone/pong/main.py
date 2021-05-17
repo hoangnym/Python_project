@@ -40,7 +40,7 @@ while game_is_on:
         ball.bounce_of_wall()
 
     # TODO: 6) Detect collision with paddles
-    if (ball.xcor() >= 340 and ball.distance(paddle_right) < 50) or (ball.xcor() <= -340 and ball.distance(paddle_left) < 50):
+    if (ball.xcor() >= 330 and ball.distance(paddle_right) < 50) or (ball.xcor() <= -330 and ball.distance(paddle_left) < 50):
         ball.bounce_of_paddle()
 
 
