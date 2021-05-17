@@ -12,22 +12,18 @@ screen.setup(width=800, height=600)
 screen.tracer(0)
 
 # TODO: 2) Create and move a paddle
-paddle_right = Paddle(350, 0)
+paddle_right = Paddle((350, 0))
 screen.listen()
 screen.onkey(paddle_right.go_up, "Up")
 screen.onkey(paddle_right.go_down, "Down")
 
 # TODO: 3) Create another paddle
-paddle_right = Paddle(-350, 0)
+paddle_right = Paddle((-350, 0))
 screen.onkey(paddle_right.go_up, "w")
 screen.onkey(paddle_right.go_down, "s")
 
 # TODO: 4) Create the ball and make it move
 ball = Ball()
-
-# TODO: 6) Detect collision with paddle
-
-# TODO: 7) Detect collision with paddle
 
 # TODO: 8) Keep score
 
@@ -43,6 +39,9 @@ while game_is_on:
     if ball.ycor() >= 280 or ball.ycor() <= -280:
         ball.bounce_of_wall()
 
+    # TODO: 6) Detect collision with right paddle
+    if ball.distance(paddle_right) < 50 and ball.xcor() >= 340:
+        ball.bounce_of_paddle()
 
 
 screen.exitonclick()

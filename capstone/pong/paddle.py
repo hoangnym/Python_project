@@ -3,10 +3,10 @@ from turtle import Turtle, Screen
 
 class Paddle:
 
-    def __init__(self, x_pos, y_pos):
+    def __init__(self, position):
         self.paddle = Turtle()
         self.paddle.penup()
-        self.paddle.goto(x_pos, y_pos)
+        self.paddle.goto(position)
         self.paddle.color("white")
         self.create_paddle()
 

@@ -18,3 +18,6 @@ class Ball(Turtle):
 
     def bounce_of_wall(self):
         self.y_move *= -1
+
+    def bounce_of_paddle(self):
+        self.x_move *= -1
