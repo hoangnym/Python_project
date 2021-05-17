@@ -1,5 +1,6 @@
 from turtle import Turtle, Screen
 
+
 class Paddle:
 
     def __init__(self, x_pos, y_pos):
