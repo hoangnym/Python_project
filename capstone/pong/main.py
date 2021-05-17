@@ -43,5 +43,9 @@ while game_is_on:
     if (ball.xcor() >= 330 and ball.distance(paddle_right) < 50) or (ball.xcor() <= -330 and ball.distance(paddle_left) < 50):
         ball.bounce_of_paddle()
 
+    # TODO: 7) Detect ball out of bounds
+    if ball.xcor() > 400 or ball.xcor() < -400:
+        ball.reset()
+
 
 screen.exitonclick()
