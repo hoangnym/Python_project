@@ -10,6 +10,7 @@ screen.tracer(0)
 
 turtle = Player()
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(turtle.move, "Up")
@@ -32,6 +33,7 @@ while game_is_on:
     if turtle.finish():
         turtle.next_level()
         car_manager.level_up()
+        scoreboard.increase_level()
 
 
 screen.exitonclick()
