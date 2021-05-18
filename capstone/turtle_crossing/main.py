@@ -16,7 +16,7 @@ screen.onkey(turtle.move, "Up")
 
 
 game_is_on = True
-increment = 0
+
 while game_is_on:
     time.sleep(0.1)
     screen.update()
