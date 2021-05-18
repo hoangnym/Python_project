@@ -12,14 +12,14 @@ class Player(Turtle):
         self.shape("turtle")
         self.color("black")
         self.penup()
-        self.goto(STARTING_POSITION)
         self.seth(90)
+        self.next_level()
 
     def move(self):
         self.forward(MOVE_DISTANCE)
 
     def finish(self):
-        return self.ycor() == FINISH_LINE_Y
+        return self.ycor() >= FINISH_LINE_Y
 
     def next_level(self):
         self.goto(STARTING_POSITION)

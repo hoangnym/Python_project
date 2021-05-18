@@ -31,6 +31,7 @@ while game_is_on:
     # Detect when player has reached other side
     if turtle.finish():
         turtle.next_level()
+        car_manager.level_up()
 
 
 screen.exitonclick()
