@@ -27,3 +27,10 @@ while game_is_on:
     for car in car_manager.all_cars:
         if car.distance(turtle) < 20:
             game_is_on = False
+
+    # Detect when player has reached other side
+    if turtle.finish():
+        turtle.next_level()
+
+
+screen.exitonclick()
