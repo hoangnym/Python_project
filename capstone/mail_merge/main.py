@@ -16,9 +16,9 @@ with open("Input/Letters/starting_letter.txt") as file:
     letter = file.read()
     for name in names:
         # write letter to each guest
-        with open(f"Output/ReadyToSend/{name}.txt", mode="w") as file:
+        with open(f"Output/ReadyToSend/{name}.txt", mode="w") as new_letter:
             # replace [name] with name of guest
-            file.write(letter.replace("[name]", name))
+            new_letter.write(letter.replace("[name]", name))
         print(f"Letter ready for {name}.")
 
 
