@@ -1,8 +1,8 @@
-# Open the file
-file = open("my_file.txt")
+# Write to a file (using mode="w" to write to it, "a" to append to it)
+with open("my_file.txt", mode="a") as file:
+    file.write("\nNew text")
 
-contents = file.read()
-print(contents)
-
-# Close the file
-file.close()
+# Open the file (using with closes it at the end of the code block)
+with open("my_file.txt") as file:
+    contents = file.read()
+    print(contents)
