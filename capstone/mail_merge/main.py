@@ -15,4 +15,11 @@ with open("Input/Letters/starting_letter.txt") as file:
 with open("Input/Names/invited_names.txt") as names:
     names = names.read().splitlines()
 
-for name in names
+for name in names:
+    # write letter to each guest
+    with open(f"Output/ReadyToSend/{name}.txt", mode="w") as file:
+        for line in letter:
+            # replace [name] with name of guest
+            file.write(line.replace("[name]", name))
+    print(f"Letter ready for {name}.")
+
