@@ -49,4 +49,5 @@ data_dict = {
 }
 
 df = pd.DataFrame(data_dict)
+df.to_csv("new_data.csv")
 print(df)
