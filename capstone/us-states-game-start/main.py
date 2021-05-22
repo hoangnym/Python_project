@@ -8,18 +8,20 @@ screen.addshape(image)
 t.shape(image)
 
 df = pd.read_csv("50_states.csv")
-states = df["state"]
-print(states)
-
+states = set(df["state"])
+correct_answers = set()
 
 game_is_on = True
-correct = 0
+while game_is_on:
+    score = len(correct_answers)
+    if score == 50:
+        game_is_on = False
+    else:
+        answer_state = screen.textinput(title=f"{score}/50 States Correct", prompt="What is another state's name?").title()
+        if (answer_state in states) and (answer_state not in correct_answers):
+            correct_answers.add(answer_state)
+    print(correct_answers, len(correct_answers))
 
-# while game_is_on:
-answer_state = screen.textinput(title=f"{correct}/50 States Correct", prompt="What is another state's name?").capitalize()
-print(answer_state)
-if correct == 50:
-    game_is_on = False
+screen.exitonclick()
 
-
-t.mainloop()
+# t.mainloop()
