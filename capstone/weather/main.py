@@ -28,3 +28,11 @@ avg_temp = sum(temp_list) / len(temp_list)
 print(avg_temp)
 print(data["temp"].mean())
 print(data["temp"].max())
+
+# Get first row
+row_1 = data[data.day == "Monday"]
+print(row_1)
+
+# Get row of maximum temp day
+row_2 = data[data.temp == data.temp.max()]
+print(row_2)
