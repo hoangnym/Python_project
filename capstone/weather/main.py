@@ -16,11 +16,11 @@
 import pandas as pd
 
 data = pd.read_csv("weather_data.csv")
-print(type(data))                       # dataframe
-print(type(data["temp"]))               # series
+# print(type(data))                       # dataframe
+# print(type(data["temp"]))               # series
 
 data_dict = data.to_dict()
-print(data_dict)
+# print(data_dict)
 
 # Calculate average temperature
 temp_list = data["temp"].to_list()
@@ -31,8 +31,22 @@ print(data["temp"].max())
 
 # Get first row
 row_1 = data[data.day == "Monday"]
-print(row_1)
+# print(row_1)
 
 # Get row of maximum temp day
 row_2 = data[data.temp == data.temp.max()]
-print(row_2)
+# print(row_2)
+
+# Get temperature of monday in fahrenheit
+monday_temp = int(data[data.day == "Monday"].temp) * (9/5) + 32
+# print(monday_temp)
+
+
+# Create dataframe from scratch
+data_dict = {
+    "students" : ["Amy", "James", "Angela"],
+    "scores" : [76, 65, 65]
+}
+
+df = pd.DataFrame(data_dict)
+print(df)
