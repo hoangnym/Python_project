@@ -21,7 +21,7 @@ while game_is_on:
         answer_state = screen.textinput(title=f"{score}/50 States Correct", prompt="What is another state's name?").title()
         if answer_state == "Exit":
             # states_to_learn.csv
-            states_to_learn = {"states": list(states - correct_answers)}
+            states_to_learn = list(states - correct_answers)
             learn_df = pd.DataFrame(states_to_learn)
             learn_df.to_csv("states_to_learn.csv")
             break
