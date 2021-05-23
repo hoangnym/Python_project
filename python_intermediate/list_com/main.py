@@ -13,7 +13,6 @@ with open("file1.txt") as file1:
 with open("file2.txt") as file2:
     content2 = file2.read().splitlines()
 
-
 # turn strings into integers in each list
 common = [int(num) for num in content1 if num in content2]
 
