@@ -15,10 +15,7 @@ with open("file2.txt") as file2:
 
 
 # turn strings into integers in each list
-content1 = [int(num) for num in content1]
-content2 = [int(num) for num in content2]
-
-common = sorted(list(set(content1) & set(content2)))
+common = [int(num) for num in content1 if num in content2]
 
 print(common)
 
