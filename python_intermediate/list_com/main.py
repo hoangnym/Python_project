@@ -18,7 +18,9 @@ with open("file2.txt") as file2:
 content1 = [int(num) for num in content1]
 content2 = [int(num) for num in content2]
 
+common = sorted(list(set(content1) & set(content2)))
 
+print(common)
 
 
 
