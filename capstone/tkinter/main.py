@@ -34,6 +34,11 @@ output_label.grid(column=1, row=1)
 
 
 # km label
+km_label = tk.Label()
+km_label["text"] = "km"
+km_label.grid(column=2, row=1)
 
+
+# calculate button
 
 window.mainloop()
