@@ -2,9 +2,10 @@
 import tkinter as tk
 
 def miles_to_km():
-    km = 1.60934 * float(user_input.get())
+    miles = float(user_input.get())
+    km = 1.60934 * miles
     output_label["text"] = km
-    return km
+    return miles, km
 
 
 if __name__ == '__main__':
