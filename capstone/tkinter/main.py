@@ -28,6 +28,12 @@ equal_label.grid(column=0, row=1)
 
 
 # output label
+output_label = tk.Label()
+output_label["text"] = 0
+output_label.grid(column=1, row=1)
+
+
+# km label
 
 
 window.mainloop()
