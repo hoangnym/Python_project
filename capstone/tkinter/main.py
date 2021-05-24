@@ -21,23 +21,19 @@ if __name__ == '__main__':
     user_input.grid(column=1, row=0)
 
     # miles label
-    miles_label = tk.Label()
-    miles_label["text"] = "miles"
+    miles_label = tk.Label(text="miles")
     miles_label.grid(column=2, row=0)
 
     # equal label
-    equal_label = tk.Label()
-    equal_label["text"] = "is equal to"
+    equal_label = tk.Label(text="is equal to")
     equal_label.grid(column=0, row=1)
 
     # output label
-    output_label = tk.Label()
-    output_label["text"] = 0
+    output_label = tk.Label(text=0)
     output_label.grid(column=1, row=1)
 
     # km label
-    km_label = tk.Label()
-    km_label["text"] = "km"
+    km_label = tk.Label(text="km")
     km_label.grid(column=2, row=1)
 
     # calculate button
