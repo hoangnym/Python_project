@@ -18,3 +18,16 @@ def calculate(n, **kwargs):
 
 kwarg1 = calculate(2, add=3, multiply=5)
 print(kwarg1)
+
+
+class Car:
+    def __init__(self, **kw):
+        self.make = kw.get("make")
+        self.model = kw.get("model")
+
+
+my_car1 = Car(make="Nissan", model="GT-R")
+print(my_car1.make, my_car1.model)
+
+my_car2 = Car(make="Nissan")
+print(my_car2.make, my_car2.model)
