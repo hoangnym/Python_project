@@ -12,6 +12,7 @@ window.config(padx=20, pady=20)
 # Use grid system to place modules
 # input module for user (miles)
 user_input = tk.Entry()
+user_input.config(width=15)
 user_input.grid(column=1, row=0)
 
 
@@ -40,5 +41,8 @@ km_label.grid(column=2, row=1)
 
 
 # calculate button
+calculate_button = tk.Button(text="Calculate")
+calculate_button.grid(column=1, row=2)
+
 
 window.mainloop()
