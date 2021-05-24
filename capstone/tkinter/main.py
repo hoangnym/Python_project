@@ -1,35 +1,26 @@
+# Create a mile to km converter using tkinter and gui
 import tkinter as tk
 
 
-def button_clicked():
-    new_text = input.get()
-    my_label["text"] = new_text
-
-
-# Screen
+# Set up window
 window = tk.Tk()
-window.title("My first GUI Program")
+window.title("Mile to Km Converter")
 window.minsize(width=500, height=300)
 window.config(padx=20, pady=20)
 
-# Label
-my_label = tk.Label(text="I am a label", font=("Arial", 24, "bold"))
-my_label["text"] = "New Text"
-my_label.grid(column=0, row=0)
+
+# Use grid system to place modules
+# input module for user (miles)
+user_input = tk.Entry()
+user_input.grid(column=1, row=0)
 
 
-# Button
-button = tk.Button(text="Click Me", command=button_clicked)
-button.grid(column=1, row=1)
+# miles label
+miles_label = tk.Label()
+miles_label["text"] = "miles"
+miles_label.grid(column=2, row=0)
 
-# Button
-new_button = tk.Button(text="Click Me", command=button_clicked)
-new_button.grid(column=2, row=0)
-
-
-# Entry
-input = tk.Entry(width=15)
-input.grid(column=3, row=2)
+# equal label
 
 
 window.mainloop()
