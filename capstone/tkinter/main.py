@@ -11,13 +11,12 @@ if __name__ == '__main__':
     # Set up window
     window = tk.Tk()
     window.title("Mile to Km Converter")
-    window.minsize(width=300, height=200)
-    window.config(padx=20, pady=20)
+    window.config(padx=10, pady=10)
 
     # Use grid system to place modules
     # input module for user (miles)
     user_input = tk.Entry()
-    user_input.config(width=15)
+    user_input.config(width=9)
     user_input.grid(column=1, row=0)
 
     # miles label
