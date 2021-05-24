@@ -5,7 +5,7 @@ import tkinter as tk
 # Set up window
 window = tk.Tk()
 window.title("Mile to Km Converter")
-window.minsize(width=500, height=300)
+window.minsize(width=300, height=200)
 window.config(padx=20, pady=20)
 
 
@@ -20,7 +20,14 @@ miles_label = tk.Label()
 miles_label["text"] = "miles"
 miles_label.grid(column=2, row=0)
 
+
 # equal label
+equal_label = tk.Label()
+equal_label["text"] = "is equal to"
+equal_label.grid(column=0, row=1)
+
+
+# output label
 
 
 window.mainloop()
