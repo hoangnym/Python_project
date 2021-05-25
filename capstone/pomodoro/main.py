@@ -35,7 +35,8 @@ if __name__ == '__main__':
     canvas.grid(column=1, row=1)
 
     # create start button
-
+    start_btn = tk.Button(text="Start")
+    start_btn.grid(column=0, row=2)
 
 
 
