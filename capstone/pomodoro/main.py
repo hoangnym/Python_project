@@ -21,11 +21,12 @@ LONG_BREAK_MIN = 20
 if __name__ == '__main__':
     window = tk.Tk()
     window.title("Pomodoro")
+    window.config(padx=100, pady=100)
 
     # Create and place tomato image
     canvas = tk.Canvas(width=200, height=224)
     tomato_img = tk.PhotoImage(file="tomato.png")
-    canvas.create_image(100, 112, image=tomato_img)
+    canvas.create_image(103, 112, image=tomato_img)
     canvas.pack()
 
 
