@@ -1,3 +1,5 @@
+import tkinter as tk
+
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -16,3 +18,16 @@ LONG_BREAK_MIN = 20
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 
 # ---------------------------- UI SETUP ------------------------------- #
+if __name__ == '__main__':
+    window = tk.Tk()
+    window.title("Pomodoro")
+
+    # Create and place tomato image
+    canvas = tk.Canvas(width=200, height=224)
+    tomato_img = tk.PhotoImage(file="tomato.png")
+    canvas.create_image(100, 112, image=tomato_img)
+    canvas.pack()
+
+
+
+    window.mainloop()
