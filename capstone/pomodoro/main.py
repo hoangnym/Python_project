@@ -38,7 +38,13 @@ if __name__ == '__main__':
     start_btn = tk.Button(text="Start")
     start_btn.grid(column=0, row=2)
 
+    # create reset button
+    reset_btn = tk.Button(text="Reset")
+    reset_btn.grid(column=2, row=2)
 
+    # check mark
+    tick_mark = tk.Label(text="✔", highlightthickness=0, bg=YELLOW, fg=GREEN, font=(FONT_NAME, 25, "normal"))
+    tick_mark.grid(column=1, row=3)
 
 
     window.mainloop()
