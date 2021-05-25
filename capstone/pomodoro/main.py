@@ -17,6 +17,9 @@ timer = None
 # ---------------------------- TIMER RESET ------------------------------- # 
 def reset_timer():
     window.after_cancel(timer)
+    timer_text.config(text="00:00")
+    title.config(text="Timer", fg=GREEN)
+    tick_mark.config(text="")
 
 # ---------------------------- TIMER MECHANISM -------------------------------
 def start_timer():
