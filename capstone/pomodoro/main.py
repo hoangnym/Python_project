@@ -24,7 +24,7 @@ if __name__ == '__main__':
     window.config(padx=100, pady=100, bg=YELLOW)
 
     # Create title
-    title = tk.Label(text="Timer", highlightthickness=0, bg=YELLOW, fg=GREEN, font=(FONT_NAME, 45, "normal"))
+    title = tk.Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 45, "normal"))
     title.grid(column=1, row=0)
 
     # Create and place tomato image
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     reset_btn.grid(column=2, row=2)
 
     # check mark
-    tick_mark = tk.Label(text="✔", highlightthickness=0, bg=YELLOW, fg=GREEN, font=(FONT_NAME, 25, "normal"))
+    tick_mark = tk.Label(text="✔", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 25, "normal"))
     tick_mark.grid(column=1, row=3)
 
 
