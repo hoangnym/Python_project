@@ -40,6 +40,8 @@ if __name__ == '__main__':
     generate_btn = tk.Button(text="Generate Password")
     generate_btn.grid(column=2, row=3)
 
-
+    # Add to file
+    add_btn = tk.Button(text="Add", width=30)
+    add_btn.grid(column=1, row=4, columnspan=2)
 
     window.mainloop()
