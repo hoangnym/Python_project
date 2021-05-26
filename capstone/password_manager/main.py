@@ -1,8 +1,13 @@
 import tkinter as tk
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+# TODO:
+
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+# TODO: Take User inputs and when "add" clicked saved to text file: (data.txt) => website | email | pw
+# clear screen after saving to screen (delete() method)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 if __name__ == '__main__':
@@ -22,6 +27,7 @@ if __name__ == '__main__':
 
     website_entry = tk.Entry(width=35)
     website_entry.grid(column=1, row=1, columnspan=2)
+    website_entry.focus()
 
     # Email row
     email_label = tk.Label(text="Email/Username:")
@@ -29,6 +35,7 @@ if __name__ == '__main__':
 
     email_entry = tk.Entry(width=35)
     email_entry.grid(column=1, row=2, columnspan=2)
+    email_entry.insert(0, "hoang.1994@ymail.com")
 
     # Password row
     password_label = tk.Label(text="Password:")
