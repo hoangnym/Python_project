@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import random
+import pyperclip
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 # TODO: Generate a password with certain rules
@@ -20,6 +21,9 @@ def password_generator():
 
     password_entry.delete(0, tk.END)
     password_entry.insert(0, password)
+
+    # Copy pw to clipboard
+    pyperclip.copy(password)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 # TODO: Take User inputs and when "add" clicked saved to text file: (data.txt) => website | email | pw
