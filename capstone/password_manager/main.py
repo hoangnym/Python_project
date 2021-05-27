@@ -1,9 +1,25 @@
 import tkinter as tk
 from tkinter import messagebox
+import random
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 # TODO: Generate a password with certain rules
+def password_generator():
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
+    pw_letters = [random.choice(letters) for letter in range(random.randint(8, 10))]
+    pw_symbols = [random.choice(symbols) for letter in range(random.randint(2, 4))]
+    pw_numbers = [random.choice(numbers) for letter in range(random.randint(2, 4))]
+
+    password_list = pw_letters + pw_symbols + pw_numbers
+    random.shuffle(password_list)
+
+    password = ''.join(password_list)
+    print(f"Your password is: {password}")
+
+    return password
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 # TODO: Take User inputs and when "add" clicked saved to text file: (data.txt) => website | email | pw
@@ -60,7 +76,7 @@ if __name__ == '__main__':
     password_entry = tk.Entry(width=21)
     password_entry.grid(column=1, row=3)
 
-    generate_btn = tk.Button(text="Generate Password")
+    generate_btn = tk.Button(text="Generate Password", command=password_generator)
     generate_btn.grid(column=2, row=3)
 
     # Add to file
