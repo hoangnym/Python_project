@@ -8,10 +8,11 @@ import tkinter as tk
 # TODO: Take User inputs and when "add" clicked saved to text file: (data.txt) => website | email | pw
 # clear screen after saving to screen (delete() method)
 def save():
+    url = website_entry.get()
+    email = email_entry.get()
+    pw = password_entry.get()
+
     with open("data.txt", mode="a") as pw_file:
-        url = website_entry.get()
-        email = email_entry.get()
-        pw = password_entry.get()
         pw_file.write(f"{url} | {email} | {pw} \n")
 
     website_entry.delete(0, tk.END)
