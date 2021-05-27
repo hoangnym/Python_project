@@ -17,9 +17,9 @@ def password_generator():
     random.shuffle(password_list)
 
     password = ''.join(password_list)
-    print(f"Your password is: {password}")
 
-    return password
+    password_entry.delete(0, tk.END)
+    password_entry.insert(0, password)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 # TODO: Take User inputs and when "add" clicked saved to text file: (data.txt) => website | email | pw
