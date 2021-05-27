@@ -1,12 +1,21 @@
 import tkinter as tk
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
-# TODO:
+# TODO: Generate a password with certain rules
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 # TODO: Take User inputs and when "add" clicked saved to text file: (data.txt) => website | email | pw
 # clear screen after saving to screen (delete() method)
+def save():
+    with open("data.txt", mode="a") as pw_file:
+        url = website_entry.get()
+        email = email_entry.get()
+        pw = password_entry.get()
+        pw_file.write(f"{url} | {email} | {pw} \n")
+
+    website_entry.delete(0, tk.END)
+    password_entry.delete(0, tk.END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -48,7 +57,7 @@ if __name__ == '__main__':
     generate_btn.grid(column=2, row=3)
 
     # Add to file
-    add_btn = tk.Button(text="Add", width=36)
+    add_btn = tk.Button(text="Add", width=36, command=save)
     add_btn.grid(column=1, row=4, columnspan=2)
 
     window.mainloop()
