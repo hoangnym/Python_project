@@ -52,13 +52,11 @@ def save():
                 data = json.load(data_file)
                 # Updating old data with new data
                 data.update(new_data)
-
         except FileNotFoundError:
             # create new json file
             with open("data.json", mode="w") as data_file:
                 json.dump(new_data, data_file, indent=4)
                 print("New file password file created.")
-
         else:
             with open("data.json", mode="w") as data_file:
                 # Save updated data
