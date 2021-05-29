@@ -67,6 +67,11 @@ def save():
                 password_entry.delete(0, tk.END)
 
 
+# ---------------------------- SAVE PASSWORD ------------------------------- #
+def search():
+    pass
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 if __name__ == '__main__':
     window = tk.Tk()
@@ -83,9 +88,12 @@ if __name__ == '__main__':
     website_label = tk.Label(text="Website:")
     website_label.grid(column=0, row=1)
 
-    website_entry = tk.Entry(width=35)
-    website_entry.grid(column=1, row=1, columnspan=2)
+    website_entry = tk.Entry(width=21)
+    website_entry.grid(column=1, row=1)
     website_entry.focus()
+
+    search_btn = tk.Button(text="Search", command=search, width=14)
+    search_btn.grid(column=2, row=1)
 
     # Email row
     email_label = tk.Label(text="Email/Username:")
@@ -93,7 +101,7 @@ if __name__ == '__main__':
 
     email_entry = tk.Entry(width=35)
     email_entry.grid(column=1, row=2, columnspan=2)
-    email_entry.insert(0, "hoang.1994@ymail.com")
+    email_entry.insert(0, "your-username@gmail.com")
 
     # Password row
     password_label = tk.Label(text="Password:")
