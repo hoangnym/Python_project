@@ -27,6 +27,8 @@ if __name__ == '__main__':
 
     # Green Button
     green_img = tk.PhotoImage(file="images/right.png")
+    green_btn = tk.Button(image=green_img, highlightthickness=0)
+    green_btn.grid(column=1, row=1)
 
 
 
