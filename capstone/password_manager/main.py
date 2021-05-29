@@ -68,7 +68,7 @@ def save():
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-def search():
+def find_password():
     pass
 
 
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     website_entry.grid(column=1, row=1)
     website_entry.focus()
 
-    search_btn = tk.Button(text="Search", command=search, width=14)
+    search_btn = tk.Button(text="Search", width=14, command=find_password)
     search_btn.grid(column=2, row=1)
 
     # Email row
