@@ -2,9 +2,12 @@ import pandas as pd
 import tkinter as tk
 from tkinter import messagebox
 
-
+### <-------------------- Constants & data ---------------------------> ###
 BACKGROUND_COLOR = "#B1DDC6"
+data = pd.read_csv("data/french_words.csv")
 
+
+### <-------------------- UI SETUP ---------------------------> ###
 
 
 ### <-------------------- UI SETUP ---------------------------> ###
