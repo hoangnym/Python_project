@@ -69,7 +69,14 @@ def save():
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def find_password():
-    pass
+    website = website_entry.get()
+    # Check if user's text entry matches an item in the data.json
+    with open("data.json", mode="r") as data_file:
+        data = json.load(data_file)
+        if website in data.keys():
+            print("Found in database.")
+        else:
+            print("Not found in database.")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
