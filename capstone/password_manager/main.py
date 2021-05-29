@@ -63,6 +63,7 @@ def save():
             with open("data.json", mode="w") as data_file:
                 # Save updated data
                 json.dump(data, data_file, indent=4)
+                print(f"Password for {website} added.")
 
                 website_entry.delete(0, tk.END)
                 password_entry.delete(0, tk.END)
