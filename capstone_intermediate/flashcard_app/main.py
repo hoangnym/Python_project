@@ -27,8 +27,8 @@ if __name__ == '__main__':
     canvas = tk.Canvas(width=800, height=526, highlightthickness=0, bg=BACKGROUND_COLOR)
     front_card = tk.PhotoImage(file="images/card_front.png")
     canvas.create_image(400, 268, image=front_card)
-    card_title = canvas.create_text(400, 150, font=("Arial", 40, "italic"), text="Language")
-    card_vocab = canvas.create_text(400, 263, font=("Arial", 60, "bold"), text="Word")
+    card_title = canvas.create_text(400, 150, font=("Arial", 40, "italic"))
+    card_vocab = canvas.create_text(400, 263, font=("Arial", 60, "bold"))
     canvas.grid(column=0, row=0, columnspan=2)
 
     # Red Button
@@ -41,16 +41,7 @@ if __name__ == '__main__':
     green_btn = tk.Button(image=green_img, highlightthickness=0, command=next_card)
     green_btn.grid(column=1, row=1)
 
-
-
-
-
-
-
-
-
-
-
+    next_card()
 
     window.mainloop()
 
