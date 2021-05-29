@@ -81,7 +81,7 @@ def find_password():
                                     message=f"Email: {email} \nPassword: {password}")
             else:
                 messagebox.showinfo(title="No entry yet.",
-                                    message=f"{website} not found in database. Please create a password.")
+                                    message=f"No details for {website} exists yet. Please create a password.")
     except FileNotFoundError:
         messagebox.showinfo(title="Oops", message="No Data File Found.")
 
