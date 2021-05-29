@@ -18,6 +18,8 @@ if __name__ == '__main__':
     canvas = tk.Canvas(width=800, height=526, highlightthickness=0, bg=BACKGROUND_COLOR)
     front_card = tk.PhotoImage(file="images/card_front.png")
     canvas.create_image(400, 268, image=front_card)
+    canvas.create_text(400, 150, font=("Arial", 40, "italic"), text="Text")
+    canvas.create_text(400, 263, font=("Arial", 60, "bold"), text="Sub Text")
     canvas.grid(column=0, row=0, columnspan=2)
 
     # Red Button
