@@ -71,12 +71,19 @@ def save():
 def find_password():
     website = website_entry.get()
     # Check if user's text entry matches an item in the data.json
-    with open("data.json", mode="r") as data_file:
-        data = json.load(data_file)
-        if website in data.keys():
-            print("Found in database.")
-        else:
-            print("Not found in database.")
+    try:
+        with open("data.json", mode="r") as data_file:
+            data = json.load(data_file)
+            if website in data.keys():
+                email = data[website]["email"]
+                password = data[website]["password"]
+                messagebox.showinfo(title="Your data request",
+                                    message=f"Email: {email} \nPassword: {password}")
+            else:
+                messagebox.showinfo(title="No entry yet.",
+                                    message=f"{website} not found in database. Please create a password.")
+    except FileNotFoundError:
+        messagebox.showinfo(title="Oops", message="No Data File Found.")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
