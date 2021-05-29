@@ -67,7 +67,7 @@ def save():
                 password_entry.delete(0, tk.END)
 
 
-# ---------------------------- SAVE PASSWORD ------------------------------- #
+# ---------------------------- FIND PASSWORD ------------------------------- #
 def find_password():
     website = website_entry.get()
     # Check if user's text entry matches an item in the data.json
@@ -101,18 +101,15 @@ if __name__ == '__main__':
     # Website row
     website_label = tk.Label(text="Website:")
     website_label.grid(column=0, row=1)
-
     website_entry = tk.Entry(width=21)
     website_entry.grid(column=1, row=1)
     website_entry.focus()
-
     search_btn = tk.Button(text="Search", width=14, command=find_password)
     search_btn.grid(column=2, row=1)
 
     # Email row
     email_label = tk.Label(text="Email/Username:")
     email_label.grid(column=0, row=2)
-
     email_entry = tk.Entry(width=35)
     email_entry.grid(column=1, row=2, columnspan=2)
     email_entry.insert(0, "your-username@gmail.com")
@@ -120,14 +117,12 @@ if __name__ == '__main__':
     # Password row
     password_label = tk.Label(text="Password:")
     password_label.grid(column=0, row=3)
-
     password_entry = tk.Entry(width=21)
     password_entry.grid(column=1, row=3)
-
     generate_btn = tk.Button(text="Generate Password", command=password_generator)
     generate_btn.grid(column=2, row=3)
 
-    # Add to file
+    # Add to data file
     add_btn = tk.Button(text="Add", width=36, command=save)
     add_btn.grid(column=1, row=4, columnspan=2)
 
