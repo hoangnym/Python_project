@@ -5,9 +5,17 @@ import random
 
 ### <-------------------- Constants & data ---------------------------> ###
 BACKGROUND_COLOR = "#B1DDC6"
-data = pd.read_csv("data/french_words.csv")
-to_learn = data.to_dict(orient="records")
 current_card = {}
+to_learn = {}
+
+try:
+    data = pd.read_csv("data/words_to_learn.csv")
+except FileNotFoundError:
+    original_data = pd.read_csv("data/french_words.csv")
+    to_learn = original_data.to_dict(orient="records")
+else:
+    to_learn = data.to_dict(orient="records")
+
 
 
 ### <-------------------- Generate new random word ---------------------------> ###
@@ -25,13 +33,12 @@ def flip_card():
     canvas.itemconfig(card_title, text="English", fill="white")
     canvas.itemconfig(card_vocab, text=current_card["English"], fill="white")
     canvas.itemconfig(card_background, image=back_card)
-    print(current_card)
 
 
 def is_known():
     to_learn.remove(current_card)
     df = pd.DataFrame(to_learn)
-    df.to_csv("data/words_to_learn.csv")
+    df.to_csv("data/words_to_learn.csv", index=False)
     next_card()
 
 
