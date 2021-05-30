@@ -7,7 +7,6 @@ my_email = "zenlabdesigninfo@gmail.com"
 my_password = "govtK3K5KY&h23ePu^"
 
 def send_mail(subject, content):
-    global my_email, my_password
     try:
         # Establish and close connection
         with smtplib.SMTP("smtp.gmail.com") as connection:
