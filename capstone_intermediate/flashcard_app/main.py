@@ -28,6 +28,13 @@ def flip_card():
     print(current_card)
 
 
+def is_known():
+    to_learn.remove(current_card)
+    df = pd.DataFrame(to_learn)
+    df.to_csv("data/words_to_learn.csv")
+    next_card()
+
+
 ### <-------------------- UI SETUP ---------------------------> ###
 if __name__ == '__main__':
     # Setup window
@@ -53,7 +60,7 @@ if __name__ == '__main__':
 
     # Green Button
     green_img = tk.PhotoImage(file="images/right.png")
-    green_btn = tk.Button(image=green_img, highlightthickness=0, command=next_card)
+    green_btn = tk.Button(image=green_img, highlightthickness=0, command=is_known)
     green_btn.grid(column=1, row=1)
 
     next_card()
