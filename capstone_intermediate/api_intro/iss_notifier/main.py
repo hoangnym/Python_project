@@ -60,12 +60,12 @@ if __name__ == '__main__':
     now_hour = time_now.hour
 
     #If the ISS is close to my current position and it is currently dark
-    if not can_see_iss() and not (sunrise > now_hour or sunset < now_hour):
+    if not can_see_iss() and not (sunrise >= now_hour or sunset <= now_hour):
         # Then send me an email to tell me to look up.
         mail = "zenlabdesigninfo@gmail.com"
-
+        mail_pw = ">>>1govtK3K5KY&h23ePu^1<<<"
         content_mail = "Look up into the sky. You can see the ISS now from your position."
-        send_mail(mail, mail_pw, mail_pw, content_mail)
+        send_mail(mail, mail_pw, mail, content_mail)
 
     # BONUS: run the code every 60 seconds.
 
