@@ -1,6 +1,7 @@
 import requests
 from datetime import date, datetime
 import smtplib
+import time
 
 MY_LAT = 50.110924
 MY_LONG = 8.682127
@@ -62,8 +63,9 @@ if __name__ == '__main__':
     #If the ISS is close to my current position and it is currently dark
     if not can_see_iss() and not (sunrise >= now_hour or sunset <= now_hour):
         # Then send me an email to tell me to look up.
+        # Won't work unless pw changed
         mail = "zenlabdesigninfo@gmail.com"
-        mail_pw = ">>>1govtK3K5KY&h23ePu^1<<<"
+        mail_pw = "<password>"
         content_mail = "Look up into the sky. You can see the ISS now from your position."
         send_mail(mail, mail_pw, mail, content_mail)
 
