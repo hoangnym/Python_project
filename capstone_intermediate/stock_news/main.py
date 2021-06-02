@@ -34,18 +34,28 @@ else:
 
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
-news_parameters = {
-    "q": COMPANY_NAME,
-    "from": str(YESTERDAY),
-    "sortBy": "popularity",
-    "apiKey": os.environ.get("NEWS_API")
-}
+def get_news(company=COMPANY_NAME):
+    news_parameters = {
+        "q": company,
+        "from": str(YESTERDAY),
+        "sortBy": "popularity",
+        "apiKey": os.environ.get("NEWS_API")
+    }
 
+    NEWS_ENDPOINT = "https://newsapi.org/v2/everything?"
+
+    response_news = requests.get(url=NEWS_ENDPOINT, params=news_parameters)
+    response_news.raise_for_status()
+    news_data = response_news.json()
+    top_articles = news_data["articles"][0:3]
+    headlines = {article["title"]:article["description"] for article in top_articles}
+
+    return headlines
 
 
 
 ## STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number. 
+# Send a seperate message with the percentage change and each article's title and description to your phone number.
 
 
 #Optional: Format the SMS message like this: 
