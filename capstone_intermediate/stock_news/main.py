@@ -9,7 +9,7 @@ TODAY = dt.date.today()
 YESTERDAY = TODAY - dt.timedelta(days=1)
 
 ## STEP 1: Use https://www.alphavantage.co
-parameters = {
+stock_parameters = {
     "function": "TIME_SERIES_DAILY",
     "symbol": STOCK,
     "outputsize": "compact",
@@ -18,7 +18,7 @@ parameters = {
 
 AV_ENDPOINT = "https://www.alphavantage.co/query?"
 
-response = requests.get(url=AV_ENDPOINT, params=parameters)
+response = requests.get(url=AV_ENDPOINT, params=stock_parameters)
 response.raise_for_status()
 stock_data = response.json()
 time_series = stock_data["Time Series (Daily)"]
@@ -32,10 +32,17 @@ if stock_movement >= 0.05:
 else:
     print(stock_movement, stock_yesterday, stock_today)
 
-
-
 ## STEP 2: Use https://newsapi.org
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
+news_parameters = {
+    "q": COMPANY_NAME,
+    "from": str(YESTERDAY),
+    "sortBy": "popularity",
+    "apiKey": os.environ.get("NEWS_API")
+}
+
+
+
 
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
