@@ -9,7 +9,6 @@ TODAY = dt.date.today()
 YESTERDAY = TODAY - dt.timedelta(days=1)
 
 ## STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 parameters = {
     "function": "TIME_SERIES_DAILY",
     "symbol": STOCK,
@@ -23,9 +22,15 @@ response = requests.get(url=AV_ENDPOINT, params=parameters)
 response.raise_for_status()
 stock_data = response.json()
 time_series = stock_data["Time Series (Daily)"]
-stock_today = time_series[str(TODAY)]['1. open']
-stock_yesterday = time_series[str(YESTERDAY)]['1. open']
-print(stock_today, stock_yesterday)
+stock_today = float(time_series[str(TODAY)]['1. open'])
+stock_yesterday = float(time_series[str(YESTERDAY)]['1. open'])
+stock_movement = abs(stock_yesterday - stock_today)/stock_yesterday
+
+# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+if stock_movement >= 0.05:
+    print("Get News")
+else:
+    print(stock_movement, stock_yesterday, stock_today)
 
 
 
