@@ -31,7 +31,7 @@ def get_news(company=COMPANY_NAME):
     response_news.raise_for_status()
     news_data = response_news.json()
     top_articles = news_data["articles"][0:3]
-    headlines = {article["title"]:article["description"] for article in top_articles}
+    headlines = {article["title"]: article["description"] for article in top_articles}
 
     return headlines
 
@@ -70,7 +70,7 @@ if __name__ == '__main__':
     stock_series = [value for (key, value) in time_series.items()]
     stock_today = float(stock_series[0]['4. close'])
     stock_yesterday = float(stock_series[1]['4. close'])
-    stock_movement = int(((stock_yesterday - stock_today)/stock_yesterday)*100)
+    stock_movement = round(((stock_yesterday - stock_today)/stock_yesterday)*100)
     top_news = get_news()
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
     for (headline, content) in top_news.items():
