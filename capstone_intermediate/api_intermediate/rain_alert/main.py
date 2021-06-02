@@ -4,12 +4,12 @@ from twilio.rest import Client
 import requests
 
 OWM_ENDPOINT = "https://api.openweathermap.org/data/2.5/onecall?"
-api_key = ""
+api_key = "" # openweathermap api key
 
 # Find your Account SID and Auth Token at twilio.com/console
 # and set the environment variables. See http://twil.io/secure
-account_sid = ""
-auth_token = ""
+account_sid = "" # twilio account sid
+auth_token = "" # twilio auth_token
 
 # FFM
 MY_LAT = 50.110924
