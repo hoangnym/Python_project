@@ -7,8 +7,8 @@ from twilio.http.http_client import TwilioHttpClient
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
-TODAY = dt.date.today()
-YESTERDAY = TODAY - dt.timedelta(days=1)
+today = dt.date.today()
+yesterday = dt.date.today() - dt.timedelta(days=1)
 
 # Find your Account SID and Auth Token at twilio.com/console
 # and set the environment variables. See http://twil.io/secure
@@ -20,7 +20,7 @@ auth_token = os.environ.get("TW_AUTH_T") # twilio auth_token
 def get_news(company=COMPANY_NAME):
     news_parameters = {
         "q": company,
-        "from": str(YESTERDAY),
+        "from": str(yesterday),
         "sortBy": "popularity",
         "apiKey": os.environ.get("NEWS_API")
     }
@@ -67,8 +67,9 @@ if __name__ == '__main__':
     response.raise_for_status()
     stock_data = response.json()
     time_series = stock_data["Time Series (Daily)"]
-    stock_today = float(time_series[str(TODAY)]['1. open'])
-    stock_yesterday = float(time_series[str(YESTERDAY)]['1. open'])
+    stock_series = [value for (key, value) in time_series.items()]
+    stock_today = float(stock_series[0]['4. close'])
+    stock_yesterday = float(stock_series[1]['4. close'])
     stock_movement = int((abs(stock_yesterday - stock_today)/stock_yesterday)*100)
     top_news = get_news()
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
