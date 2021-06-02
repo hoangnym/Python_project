@@ -1,15 +1,19 @@
+# Download the helper library from https://www.twilio.com/docs/python/install
+import os
+from twilio.rest import Client
 import requests
 
 OWM_ENDPOINT = "https://api.openweathermap.org/data/2.5/onecall?"
-api_key = "secret_key"
+api_key = ""
+
+# Find your Account SID and Auth Token at twilio.com/console
+# and set the environment variables. See http://twil.io/secure
+account_sid = ""
+auth_token = ""
 
 # FFM
 MY_LAT = 50.110924
 MY_LONG = 8.682127
-
-# Bali
-# MY_LAT = -8.340539
-# MY_LONG = 115.091949
 
 # NASHVILLE
 # MY_LAT = 36.166340
@@ -32,4 +36,12 @@ twelve_hour_weather_codes = [hour["weather"][0]["id"] for hour in hourly_data][0
 will_rain = any(code < 700 for code in twelve_hour_weather_codes)
 
 if will_rain:
-    print("Bring an umbrella.")
+    client = Client(account_sid, auth_token)
+    message = client.messages \
+        .create(
+        body="It is going to rain today. Remember to bring an ☔️.",
+        from_="", # your twilio number
+        to="" # your verified number
+    )
+
+    print(message.status)
