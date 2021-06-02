@@ -18,10 +18,11 @@ class QuizInterface:
         self.score_label.grid(column=1, row=0)
 
         # Question
-        self.canvas = tk.Canvas(width=250, height=300, bg="white")
+        self.canvas = tk.Canvas(width=300, height=250, bg="white")
         self.question_text = self.canvas.create_text(
-            125,
             150,
+            125,
+            width=280,
             font=("Arial", 20, "italic"),
             text="Some Question Text",
             fill=THEME_COLOR
