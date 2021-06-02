@@ -29,6 +29,7 @@ hourly_data = weather_data["hourly"]
 
 # Looping through next 12 hours of hourly data and figure out whether to bring umbrella
 twelve_hour_weather_codes = [hour["weather"][0]["id"] for hour in hourly_data][0:12]
-bring_umbrella = any(code < 700 for code in twelve_hour_weather_codes)
+will_rain = any(code < 700 for code in twelve_hour_weather_codes)
 
-print(bring_umbrella)
+if will_rain:
+    print("Bring an umbrella.")
