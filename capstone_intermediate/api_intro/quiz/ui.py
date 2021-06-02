@@ -12,10 +12,16 @@ class QuizInterface:
         self.score = 0
 
         # Score Label
-        self.create_score_label()
+        self.score_label = tk.Label(text=f"Score: {self.score}", fg="white", bg=THEME_COLOR)
+        self.score_label.grid(column=1, row=0)
 
         # Question
-        self.create_canvas()
+        self.canvas = tk.Canvas(width=250, height=300, bg="white")
+        self.canvas.create_text(125, 150,
+                           font=("Arial", 20, "italic"),
+                           text="Some Question Text",
+                           fill=THEME_COLOR)
+        self.canvas.grid(column=0, row=1, columnspan=2, pady=50)
 
         # Buttons
         true_img = tk.PhotoImage(file="images/true.png")
@@ -28,16 +34,3 @@ class QuizInterface:
 
         self.window.mainloop()
 
-
-    def create_score_label(self):
-        score_label = tk.Label(text=f"Score: {self.score}", fg="white", bg=THEME_COLOR)
-        score_label.grid(column=1, row=0)
-
-
-    def create_canvas(self):
-        canvas = tk.Canvas(width=250, height=300, bg="white")
-        canvas.create_text(125, 150,
-                           font=("Arial", 20, "italic"),
-                           text="Some Question Text",
-                           fill=THEME_COLOR)
-        canvas.grid(column=0, row=1, columnspan=2, pady=50)
