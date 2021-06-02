@@ -10,9 +10,21 @@ class QuizInterface:
         self.window.title("Quizzler")
         self.window.config(padx=20, pady=20, bg=THEME_COLOR)
         self.score = 0
+
+        # Score Label
         self.create_score_label()
+
+        # Question
         self.create_canvas()
-        self.create_buttons()
+
+        # Buttons
+        true_img = tk.PhotoImage(file="images/true.png")
+        self.true_btn = tk.Button(image=true_img, highlightthickness=0)
+        self.true_btn.grid(column=1, row=2)
+
+        false_img = tk.PhotoImage(file="images/false.png")
+        self.false_btn = tk.Button(image=false_img, highlightthickness=0)
+        self.false_btn.grid(column=0, row=2)
 
         self.window.mainloop()
 
@@ -29,14 +41,3 @@ class QuizInterface:
                            text="Some Question Text",
                            fill=THEME_COLOR)
         canvas.grid(column=0, row=1, columnspan=2, pady=50)
-
-    def create_buttons(self):
-        # Red Button
-        false_img = tk.PhotoImage(file="images/false.png")
-        false_btn = tk.Button(image=false_img)
-        false_btn.grid(column=1, row=2)
-
-        # Green Button
-        true_img = tk.PhotoImage(file="images/true.png")
-        true_btn = tk.Button(image=true_img)
-        true_btn.grid(column=0, row=2)
