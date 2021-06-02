@@ -51,31 +51,31 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg="white")
+        self.update_score()
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=q_text)
 
     def true_pressed(self):
         is_right = self.quiz.check_answer("True")
         self.give_feedback(is_right)
-        if :
+        if is_right:
             self.score += 1
-        else:
-        self.get_next_question()
-
 
     def false_pressed(self):
         is_right = self.quiz.check_answer("False")
         self.give_feedback(is_right)
-        if :
+        if is_right:
             self.score += 1
-        else:
-        self.get_next_question()
 
     def give_feedback(self, is_right):
         if is_right:
             self.canvas.config(bg="green")
         else:
             self.canvas.config(bg="red")
-        self.window.after(1000, func=)
+        self.window.after(1000, func=self.get_next_question)
+
+    def update_score(self):
+        self.score_label["text"] = f"Score: {self.score}"
 
 
