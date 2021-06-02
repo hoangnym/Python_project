@@ -70,14 +70,15 @@ if __name__ == '__main__':
     stock_series = [value for (key, value) in time_series.items()]
     stock_today = float(stock_series[0]['4. close'])
     stock_yesterday = float(stock_series[1]['4. close'])
-    stock_movement = int((abs(stock_yesterday - stock_today)/stock_yesterday)*100)
+    stock_movement = int(((stock_yesterday - stock_today)/stock_yesterday)*100)
     top_news = get_news()
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
     for (headline, content) in top_news.items():
-        if stock_movement > 0:
-            send_sms(headline, content, stock_movement, "🔺")
-        elif stock_movement < 0:
-            send_sms(headline, content, stock_movement, "🔻")
+        if abs(stock_movement) >= 5:
+            if stock_movement > 0:
+                send_sms(headline, content, abs(stock_movement), "🔺")
+            elif stock_movement < 0:
+                send_sms(headline, content, abs(stock_movement), "🔻")
         else:
-            send_sms(headline, content, stock_movement, "~")
+            print("Nothing substantial.")
 
