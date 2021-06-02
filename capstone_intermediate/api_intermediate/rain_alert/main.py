@@ -1,7 +1,7 @@
 import requests
 
 OWM_ENDPOINT = "https://api.openweathermap.org/data/2.5/onecall?"
-api_key = "fc8716ba7941b8d080f5fc16059dd8c3"
+api_key = "secret_key"
 
 # FFM
 MY_LAT = 50.110924
